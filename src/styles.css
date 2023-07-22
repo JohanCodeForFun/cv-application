@@ -1,0 +1,15 @@
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 100vh;
+}
+
+.app-container {
+  display: flex;
+  justify-content: center;
+}
+
+span {
+  color: red;
+}
