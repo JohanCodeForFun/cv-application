@@ -1,7 +1,6 @@
 import React from "react";
-// import { Form } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
-
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -20,7 +19,11 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
-  // ...
+  const form = useForm()
+
+  function onSubmit() {
+    return
+  }
  
   return (
     <Form {...form}>

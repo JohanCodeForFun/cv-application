@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
-import './styles.css'
+import "./styles.css";
 // import {
 //   Form,
 //   FormControl,
@@ -12,28 +12,18 @@ import './styles.css'
 //   FormMessage,
 // } from "@/components/ui/form"
 
-import PersonalInput from "./components/PersonalInput";
-// import ProfileForm from "./components/ProfileForm";
+// import PersonalInput from "./components/PersonalInput";
+import ProfileForm from "./components/ProfileForm";
 
 function App() {
   const [input, setInput] = useState("");
   return (
     <>
-    <div className="app-container">
-      {/* <ProfileForm /> */}
-      {/* <PersonalInput /> */}
-
-      <form className="form-input">
-      <h1>CV Application</h1>
-        <label>hello</label>
-        <Input
-          value={input}
-          onChange={(event) => {
-            setInput(event.target.value);
-          }}
-        />
-        <Button onClick={() => console.log(input)}>Click me!</Button>
-      </form>
+      <div className="app-container">
+        <div className="form-input">
+          <h1>CV Application</h1>
+          <ProfileForm />
+        </div>
       </div>
     </>
   );
