@@ -11,6 +11,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 const formSchema = z.object({
@@ -21,9 +22,18 @@ const formSchema = z.object({
 });
 
 export default function ProfileForm() {
-  const form = useForm()
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: 0,
+    }
+  })
 
-  function onSubmit() {
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values)
     return
   }
  
@@ -54,7 +64,7 @@ export default function ProfileForm() {
               <FormDescription>
                 This is your public display name.
               </FormDescription>
-              <FormMessage />
+              <FormMessage className="form-message"/>
             </FormItem>
           )}
         />
