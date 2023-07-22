@@ -1,8 +1,17 @@
 .form-input {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 280px;
   height: 100vh;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-fill {
+  display: flex;
+  justify-content: space-between;
 }
 
 .app-container {
@@ -10,6 +19,6 @@
   justify-content: center;
 }
 
-span {
+.form-message {
   color: red;
 }
