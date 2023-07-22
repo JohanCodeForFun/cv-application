@@ -24,6 +24,8 @@ function App() {
           <h1 className="text-center">CV Application</h1>
           {/* <ProfileForm /> */}
           <PersonalInput />
+          <p>cv details below:</p>
+          <p>...</p>
         </div>
       </div>
     </>
