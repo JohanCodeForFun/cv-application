@@ -6,7 +6,7 @@ const TemplateCV = () => {
     <div className="template-container">
       {templates.map((template) => {
         return (
-          <div className="template">
+          <div className="template" key={template.id}>
             <button>{template.name}</button>
             <img src={template.src} alt={template.name}/>
           </div>
