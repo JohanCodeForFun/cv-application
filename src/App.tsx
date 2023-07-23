@@ -1,31 +1,54 @@
 // import { useState } from "react";
-// import { Button } from "./components/ui/button";
-// import { Input } from "./components/ui/input";
 import "./styles.css";
-// import {
-//   Form,
-//   FormControl,
-//   FormDescription,
-//   FormField,
-//   FormItem,
-//   FormLabel,
-//   FormMessage,
-// } from "@/components/ui/form"
 
 import PersonalInput from "./components/PersonalInput";
 // import ProfileForm from "./components/ProfileForm";
 
+import { useForm } from 'react-hook-form';
+import { z, ZodType} from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { DevTool } from '@hookform/devtools'
+
+type FormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phoneNumber: number;
+}
+const schema: ZodType<FormData> = z.object({
+  firstName: z.string().min(2).max(21),
+  lastName: z.string().min(2).max(21),
+  email: z.string().min(8).max(34).email(),
+  phoneNumber: z.number(),
+})
+
 function App() {
-  // const [input, setInput] = useState("");
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<FormData>({ resolver: zodResolver(schema)})
+
+  const submitData = (data: FormData) => {
+    console.log('IT WORKED', data)
+  }
+
   return (
     <>
       <div className="app-container">
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
           {/* <ProfileForm /> */}
-          <PersonalInput />
+          <PersonalInput 
+          register={register}
+          handleSubmit={handleSubmit}
+          submitData={submitData}
+          errors={errors}
+          />
+          <DevTool control={control} />
           <p>cv details below:</p>
-          <p>...</p>
+          <p>{}</p>
         </div>
       </div>
     </>
