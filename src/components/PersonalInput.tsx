@@ -1,8 +1,4 @@
-
-export default function PersonalInput() {
-
- 
-
+export default function PersonalInput({register, handleSubmit, submitData, errors}) {
   return (
     <form onSubmit={handleSubmit(submitData)}>
       <div className="form-fill">
