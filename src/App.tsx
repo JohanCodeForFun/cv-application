@@ -3,6 +3,7 @@ import "./styles.css";
 
 import PersonalInput from "./components/PersonalInput";
 import TemplateCV from "./components/TemplateCV";
+import { ExampleValues } from "./components/ExampleValues";
 // import ProfileForm from "./components/ProfileForm";
 
 import { useForm } from 'react-hook-form';
@@ -36,7 +37,8 @@ function App() {
 
   const submitData = (data: FormData) => {
     setFormData1(data);
-    console.log('IT WORKED', formData1)
+    console.log('submitted data:', data)
+    return data
   }
 
   return (
@@ -44,6 +46,7 @@ function App() {
       <div className="app-container">
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
+          <ExampleValues />
           {/* <ProfileForm /> */}
           <PersonalInput 
           register={register}
