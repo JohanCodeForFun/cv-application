@@ -7,6 +7,7 @@ import PersonalInput from "./components/PersonalInput";
 import { useForm } from 'react-hook-form';
 import { z, ZodType} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { DevTool } from '@hookform/devtools'
 
 type FormData = {
   firstName: string;
@@ -24,6 +25,7 @@ const schema: ZodType<FormData> = z.object({
 function App() {
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: zodResolver(schema)})
@@ -44,6 +46,7 @@ function App() {
           submitData={submitData}
           errors={errors}
           />
+          <DevTool control={control} />
           <p>cv details below:</p>
           <p>{}</p>
         </div>
