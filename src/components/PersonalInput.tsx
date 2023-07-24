@@ -23,6 +23,7 @@ export default function PersonalInput({register, handleSubmit, submitData, error
       </div>
       <div>
         <input type="submit" />
+        <input type="reset" value="Reset Field Values"/>
       </div>
     </form>
   )
