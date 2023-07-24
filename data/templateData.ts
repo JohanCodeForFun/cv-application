@@ -2,19 +2,19 @@ const templates = [
   {
     id: 0,
     name: "Classic CV",
-    src: "public/cv-classic.png",
+    src: "/cv-classic.png",
     desc: "Lorem ipsum"
   },
   {
     id: 1,
     name: "Contemporary CV",
-    src: "public/cv-contemporary.png",
+    src: "/cv-contemporary.png",
     desc: "Lorem ipsum"
   },
   {
     id: 2,
     name: "Bold CV",
-    src: "public/cv-bold.png",
+    src: "/cv-bold.png",
     desc: "Lorem ipsum"
   },
 ]

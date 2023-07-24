@@ -3,6 +3,7 @@ import "./styles.css";
 
 import PersonalInput from "./components/PersonalInput";
 import TemplateCV from "./components/TemplateCV";
+import { ExampleValues } from "./components/ExampleValues";
 // import ProfileForm from "./components/ProfileForm";
 
 import { useForm } from 'react-hook-form';
@@ -17,6 +18,7 @@ type FormData = {
   email: string;
   phoneNumber: number;
 }
+
 const schema: ZodType<FormData> = z.object({
   firstName: z.string().min(2).max(21).nonempty('First name is required'),
   lastName: z.string().min(2).max(21).nonempty('Last name is required'),
@@ -30,13 +32,15 @@ function App() {
   const {
     register,
     control,
+    reset,
+    setValue,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: zodResolver(schema)})
 
   const submitData = (data: FormData) => {
     setFormData1(data);
-    console.log('IT WORKED', formData1)
+    console.log('submitted data:', data)
   }
 
   return (
@@ -44,6 +48,9 @@ function App() {
       <div className="app-container">
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
+          <ExampleValues
+            setValue={setValue}
+            reset={reset}/>
           {/* <ProfileForm /> */}
           <PersonalInput 
           register={register}
@@ -53,7 +60,11 @@ function App() {
           />
           <DevTool control={control} />
           <p>cv details below:</p>
-          <p>{}</p>
+          <div>
+            {Object.keys(formData1).length > 0 ? Object.keys(formData1).map(key => (
+              <p key={key}>{key}: {formData1[key]}</p>
+            )) : null}
+          </div>
           <TemplateCV />;
         </div>
       </div>
