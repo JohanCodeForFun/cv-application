@@ -18,6 +18,7 @@ type FormData = {
   email: string;
   phoneNumber: number;
 }
+
 const schema: ZodType<FormData> = z.object({
   firstName: z.string().min(2).max(21).nonempty('First name is required'),
   lastName: z.string().min(2).max(21).nonempty('Last name is required'),
@@ -32,6 +33,7 @@ function App() {
     register,
     control,
     reset,
+    setValue,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: zodResolver(schema)})
@@ -47,6 +49,7 @@ function App() {
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
           <ExampleValues
+            setValue={setValue}
             reset={reset}/>
           {/* <ProfileForm /> */}
           <PersonalInput 
