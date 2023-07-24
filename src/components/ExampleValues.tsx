@@ -1,11 +1,10 @@
-import React from 'react'
 import { Button } from './ui/button'
 
-export const ExampleValues = () => {
+export const ExampleValues = ({ reset }) => {
   return (
     <div>
       <Button>Load example</Button>
-      <Button>clear values</Button>
+      <Button onClick={() => reset()}>clear values</Button>
     </div>
   )
 }

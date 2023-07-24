@@ -31,6 +31,7 @@ function App() {
   const {
     register,
     control,
+    reset,
     handleSubmit,
     formState: { errors }
   } = useForm<FormData>({ resolver: zodResolver(schema)})
@@ -45,7 +46,8 @@ function App() {
       <div className="app-container">
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
-          <ExampleValues />
+          <ExampleValues
+            reset={reset}/>
           {/* <ProfileForm /> */}
           <PersonalInput 
           register={register}
