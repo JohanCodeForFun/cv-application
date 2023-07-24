@@ -38,7 +38,6 @@ function App() {
   const submitData = (data: FormData) => {
     setFormData1(data);
     console.log('submitted data:', data)
-    return data
   }
 
   return (
@@ -56,7 +55,11 @@ function App() {
           />
           <DevTool control={control} />
           <p>cv details below:</p>
-          <p>{}</p>
+          <div>
+            {Object.keys(formData1).length > 0 ? Object.keys(formData1).map(key => (
+              <p key={key}>{key}: {formData1[key]}</p>
+            )) : null}
+          </div>
           <TemplateCV />;
         </div>
       </div>
