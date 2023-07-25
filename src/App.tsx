@@ -11,13 +11,8 @@ import { z, ZodType} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { DevTool } from '@hookform/devtools'
 import { useState } from "react";
-
-type FormData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: number;
-}
+import { Preview } from "./components/Preview";
+import FormData from "./types/formData";
 
 const schema: ZodType<FormData> = z.object({
   firstName: z.string().min(2).max(21).nonempty('First name is required'),
@@ -27,7 +22,7 @@ const schema: ZodType<FormData> = z.object({
 })
 
 function App() {
-  const [formData1, setFormData1] = useState({})
+  const [formData, setFormData1] = useState({})
 
   const {
     register,
@@ -58,13 +53,8 @@ function App() {
           submitData={submitData}
           errors={errors}
           />
+          <Preview formData={formData} />
           <DevTool control={control} />
-          <p>cv details below:</p>
-          <div>
-            {Object.keys(formData1).length > 0 ? Object.keys(formData1).map(key => (
-              <p key={key}>{key}: {formData1[key]}</p>
-            )) : null}
-          </div>
           <TemplateCV />;
         </div>
       </div>
