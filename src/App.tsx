@@ -22,6 +22,7 @@ const schema: ZodType<FormData> = z.object({
   email: z.string().min(8).max(34).nonempty("Email is required").email(),
   phoneNumber: z.number(),
 });
+
 let nextTechId: 0;
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
       <Skill
         allSkills={technicalSkills}
         removeSkill={setTechnicalSkills}
-        id={id}
+        id={nextTechId}
         name={name}
       />
     </li>
