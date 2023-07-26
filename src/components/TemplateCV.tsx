@@ -1,4 +1,3 @@
-import React from "react";
 import templates from "../../data/templateData"
 
 const TemplateCV = () => {
