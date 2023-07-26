@@ -81,7 +81,9 @@ function App() {
             value={techInput}
             onChange={(e) => {setTechInput(e.target.value)}}
             placeholder="add skill..."/>
-            <button onClick={() => {
+            <button
+            disabled={techInput.length === 0}
+            onClick={() => {
               setTechnicalSkills([
               ...technicalSkills,
               {id: nextTechId++, name: techInput}
