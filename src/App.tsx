@@ -66,6 +66,7 @@ function App() {
           <h1 className="text-center">CV Application</h1>
           <ExampleValues
           setValue={setValue}
+          setTechInput={setTechInput}
           setTechnicalSkills={setTechnicalSkills}
           reset={reset}
           />

@@ -1,7 +1,7 @@
 import { Button } from './ui/button'
 import exampleData from '../../data/exampleData'
 
-export const ExampleValues = ({ setValue, setTechnicalSkills, reset }) => {
+export const ExampleValues = ({ setValue, setTechInput, setTechnicalSkills, reset }) => {
   return (
     <div>
       <Button type="button" onClick={() => {
@@ -17,6 +17,7 @@ export const ExampleValues = ({ setValue, setTechnicalSkills, reset }) => {
       <Button onClick={() => {
         reset()
         setTechnicalSkills([])
+        setTechInput('');
       }}>clear values</Button>
     </div>
   )
