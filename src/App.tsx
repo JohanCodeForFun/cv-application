@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { DevTool } from "@hookform/devtools";
 
 // components
+import { LandingPage } from "./components/LandingPage";
 import PersonalInput from "./components/PersonalInput";
 import TemplateCV from "./components/TemplateCV";
 import { ExampleValues } from "./components/ExampleValues";
@@ -23,9 +24,11 @@ const schema: ZodType<FormData> = z.object({
   phoneNumber: z.number(),
 });
 
+// variables
 let nextTechId: 0;
 
 function App() {
+const landingPage = true;
   const [formData, setFormData] = useState({});
   const [techInput, setTechInput] = useState('')
   const [softSkills, setSoftSkills] = useState([
@@ -65,38 +68,41 @@ function App() {
       <div className="app-container">
         <div className="form-input">
           <h1 className="text-center">CV Application</h1>
-          <ExampleValues
-          setValue={setValue}
-          setTechInput={setTechInput}
-          setTechnicalSkills={setTechnicalSkills}
-          reset={reset}
-          />
-          <PersonalInput
-            register={register}
-            handleSubmit={handleSubmit}
-            submitData={submitData}
-            errors={errors}
-          />
-          <div>
-            <h2>Add skill</h2>
-            <input
-            value={techInput}
-            onChange={(e) => {setTechInput(e.target.value)}}
-            placeholder="add skill..."/>
-            <button
-            disabled={techInput.length === 0}
-            onClick={() => {
-              setTechnicalSkills([
-              ...technicalSkills,
-              {id: nextTechId++, name: techInput}
-            ])
-            setTechInput('')
-            }}>add skill</button>
-            <p>id for skill, [ {nextTechId} ] (TESTING)</p>
-            <ul className="List">{technicalSkillsList}</ul>
-          </div>
-          <Preview formData={formData} />
-          <TemplateCV />
+          {landingPage ? <LandingPage /> : 
+          <>
+            <ExampleValues
+            setValue={setValue}
+            setTechInput={setTechInput}
+            setTechnicalSkills={setTechnicalSkills}
+            reset={reset}
+            />
+            <PersonalInput
+              register={register}
+              handleSubmit={handleSubmit}
+              submitData={submitData}
+              errors={errors}
+            />
+              {/* move to own "parent" component */}
+              <h2>Add skill</h2>
+              <input
+              value={techInput}
+              onChange={(e) => {setTechInput(e.target.value)}}
+              placeholder="add skill..."/>
+              <button
+              disabled={techInput.length === 0}
+              onClick={() => {
+                setTechnicalSkills([
+                ...technicalSkills,
+                {id: nextTechId++, name: techInput}
+              ])
+              setTechInput('')
+              }}>add skill</button>
+              <p>id for skill, [ {nextTechId} ] (TESTING)</p>
+              <ul className="List">{technicalSkillsList}</ul>
+            <Preview formData={formData} />
+            <TemplateCV />
+          </>
+        }
         </div>
       </div>
       <DevTool control={control} />
