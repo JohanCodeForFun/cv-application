@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './landingpage.module.css'
 
 function LandingPage() {
+  const [fullName, setFullName] = useState('Your Name')
+
+  function handleInput(e) {
+    setFullName(e.target.value)
+  }
+
   return (
     <div className={style.container}>
       <div className={style.hero}>
-        <h2>Hero title</h2>
-        <img className={style.img} src="./vite.svg" alt="hero image" width={200} height={200}/>
+        <h1>Hero title</h1>
+        <div className={style.template}>{fullName}</div>
+        <div className={style.template}>{fullName}</div>
+        <div className={style.template}>{fullName}</div>
       </div>
       <div className={style.info}>
-        <p>hello</p>
+        <div className="input">
+        <h2>hello</h2>
+        <label>Full Name:</label>
+        <input
+        value={fullName}
+        placeholder='Full name here...'
+        onFocus={(e) => e.target.value = ''}
+        onChange={handleInput}/>
+        </div>
       </div>
     </div>
   )
