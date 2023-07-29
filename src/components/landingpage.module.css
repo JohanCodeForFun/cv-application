@@ -27,12 +27,28 @@
   width: 124px;
   border-radius: 1rem;
   padding: .5rem;
-  background-color: blueviolet;
+  background-color: whitesmoke;
 }
 
 .hero {
-  background-color: green;
+  background-color: #118AB2;
 }
 .info {
   background-color: white;
+}
+
+.bold {
+  color: red;
+}
+
+.classic {
+  color: green;
+}
+
+.tempateType {
+  color: blueviolet;
+}
+
+.contemporary {
+  color: blue;
 }
