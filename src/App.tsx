@@ -14,8 +14,7 @@ function App() {
 
   return (
     <>
-      <button onClick={() => handleState()}>set state</button>
-      {showLandingPage ? <LandingPage change={handleState}/> : <TemplateForms />}
+      {showLandingPage ? <LandingPage handleState={handleState}/> : <TemplateForms />}
     </>
   );
 }
