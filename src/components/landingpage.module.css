@@ -28,10 +28,12 @@
   border-radius: 1rem;
   padding: .5rem;
   background-color: whitesmoke;
+  color: black;
 }
 
 .hero {
   background-color: #118AB2;
+  color: white;
 }
 .info {
   background-color: white;
