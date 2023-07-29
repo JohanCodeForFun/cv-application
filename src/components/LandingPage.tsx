@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import style from './landingpage.module.css'
+import CardTemplate from './CardTemplate';
 
 function LandingPage() {
   const [fullName, setFullName] = useState('Your Name')
@@ -8,13 +9,18 @@ function LandingPage() {
     setFullName(e.target.value)
   }
 
+  function resetInput(e) {
+    setFullName('');
+
+  }
+
   return (
     <div className={style.container}>
       <div className={style.hero}>
         <h1>Hero title</h1>
-        <div className={style.template}>{fullName}</div>
-        <div className={style.template}>{fullName}</div>
-        <div className={style.template}>{fullName}</div>
+        <CardTemplate templateType="classic" fullName={fullName}/>
+        <CardTemplate templateType="contemporary" fullName={fullName}/>
+        <CardTemplate templateType="bold" fullName={fullName}/>
       </div>
       <div className={style.info}>
         <div className="input">
@@ -23,7 +29,7 @@ function LandingPage() {
         <input
         value={fullName}
         placeholder='Full name here...'
-        onFocus={(e) => e.target.value = ''}
+        onFocus={(e) => resetInput(e)}
         onChange={handleInput}/>
         </div>
       </div>
