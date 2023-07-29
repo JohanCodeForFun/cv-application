@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import style from './landingpage.module.css'
 import CardTemplate from './CardTemplate';
 
-function LandingPage() {
+function LandingPage({ handleState }) {
   const [fullName, setFullName] = useState('Your Name')
 
   function handleInput(e) {
@@ -31,6 +31,7 @@ function LandingPage() {
         placeholder='Full name here...'
         onFocus={(e) => resetInput(e)}
         onChange={handleInput}/>
+        <button onClick={() => handleState()}>Create CV!</button>
         </div>
       </div>
     </div>
