@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import style from './landingpage.module.css'
 import CardTemplate from './CardTemplate';
 
-function LandingPage({ handleState }) {
+type HandleState = {
+  handleState: () => void
+}
+
+function LandingPage({ handleState }: HandleState) {
   const [fullName, setFullName] = useState('Your Name')
 
   function handleInput(e) {
     setFullName(e.target.value)
   }
 
-  function resetInput(e) {
+  function resetInput() {
     setFullName('');
 
   }
@@ -29,7 +33,7 @@ function LandingPage({ handleState }) {
         <input
         value={fullName}
         placeholder='Full name here...'
-        onFocus={(e) => resetInput(e)}
+        onFocus={() => resetInput()}
         onChange={handleInput}/>
         <button onClick={() => handleState()}>Create CV!</button>
         </div>
