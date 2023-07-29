@@ -1,7 +1,11 @@
-import React from 'react'
 import style from './landingpage.module.css'
 
-function CardTemplate({ fullName, templateType }) {
+type Props = {
+  fullName: string,
+  templateType: string
+}
+
+function CardTemplate({ fullName, templateType }: Props) {
   return (
     <div className={style.template}>
       <h3>{fullName}</h3>
