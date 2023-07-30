@@ -22,13 +22,27 @@
   flex: 1;
 }
 
+.templates {
+  height: 100%;
+  width: 100%;
+  background-color: whitesmoke;
+  color: black;
+}
+
 .template {
+  position: absolute;
   height: 176px;
   width: 124px;
   border-radius: 1rem;
   padding: .5rem;
-  background-color: whitesmoke;
-  color: black;
+  box-shadow: 0 0 30px transparent(30%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+}
+.template:hover {
+  transform: translate(-50%, -50%) scale(120%);
 }
 
 .hero {
@@ -40,16 +54,38 @@
 }
 
 .classic {
+  border: 1px solid red;
+  transform: translate(-50%, -50%) rotate(-25deg);
   color: green;
-  font-size: 16px
+  font-size: 16px;
 }
+/* .classic:hover {
+  transform: translate(-50%, -50%) rotate(-45deg);
+} */
 
 .contemporary {
+  border: 1px solid red;
+  transform: translate(-50%, -50%) rotate(0deg);
   color: blue;
   font-size: 24px;
 }
+/* .contemporary:hover {
+  transform: translate(-50%, -50%) rotate(10deg);
+} */
 
 .bold {
+  border: 1px solid red;
+  transform: translate(-50%, -50%) rotate(25deg);
   color: red;
   font-size: 32px;
+}
+/* .classic:hover {
+  transform: translate(-50%, -50%) rotate(45deg);
+} */
+
+.classic,
+.contemporary,
+.bold {
+  height: 176px;
+  width: 124px;
 }
