@@ -1,0 +1,9 @@
+
+.textCenter {
+  text-align: center;
+}
+
+.formFill {
+  display: flex;
+  justify-content: space-between;
+}

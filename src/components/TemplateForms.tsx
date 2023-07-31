@@ -1,4 +1,6 @@
 import React from 'react'
+import style from './templateForms.module.css'
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z, ZodType } from "zod";
@@ -62,43 +64,43 @@ function TemplateForms() {
   };
   return (
     <>
-        <div className="app-container">
-              <div className="form-input">
-                  <ExampleValues
-                  setValue={setValue}
-                  setTechInput={setTechInput}
-                  setTechnicalSkills={setTechnicalSkills}
-                  reset={reset}
-                  />
-                  <PersonalInput
-                    register={register}
-                    handleSubmit={handleSubmit}
-                    submitData={submitData}
-                    errors={errors}
-                  />
-                    {/* move to own "parent" component */}
-                    <h2>Add skill</h2>
-                    <input
-                    value={techInput}
-                    onChange={(e) => {setTechInput(e.target.value)}}
-                    placeholder="add skill..."/>
-                    <button
-                    disabled={techInput.length === 0}
-                    onClick={() => {
-                      setTechnicalSkills([
-                      ...technicalSkills,
-                      {id: nextTechId++, name: techInput}
-                    ])
-                    setTechInput('')
-                    }}>add skill</button>
-                    <p>id for skill, [ {nextTechId} ] (TESTING)</p>
-                    <ul className="List">{technicalSkillsList}</ul>
-                  <Preview formData={formData} />
-                  <TemplateCV />
-              </div>
-        </div>
-      <DevTool control={control} />
-      </>
+      <div className={style.appContainer}>
+          <div className={style.formInput}>
+            <ExampleValues
+            setValue={setValue}
+            setTechInput={setTechInput}
+            setTechnicalSkills={setTechnicalSkills}
+            reset={reset}
+            />
+            <PersonalInput
+              register={register}
+              handleSubmit={handleSubmit}
+              submitData={submitData}
+              errors={errors}
+            />
+              {/* move to own "parent" component */}
+              <h2>Add skill</h2>
+              <input
+              value={techInput}
+              onChange={(e) => {setTechInput(e.target.value)}}
+              placeholder="add skill..."/>
+              <button
+              disabled={techInput.length === 0}
+              onClick={() => {
+                setTechnicalSkills([
+                ...technicalSkills,
+                {id: nextTechId++, name: techInput}
+              ])
+              setTechInput('')
+              }}>add skill</button>
+              <p>id for skill, [ {nextTechId} ] (TESTING)</p>
+              <ul className="List">{technicalSkillsList}</ul>
+            <Preview formData={formData} />
+            <TemplateCV />
+          </div>
+      </div>
+    <DevTool control={control} />
+    </>
   )
 }
 
