@@ -31,6 +31,8 @@
 
 .template {
   position: absolute;
+  border: 1px solid blue;
+  background-color: #118AB2;
   height: 176px;
   width: 124px;
   border-radius: 1rem;
@@ -39,7 +41,6 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transform-origin: center;
 }
 .template:hover {
   transform: translate(-50%, -50%) scale(120%);
@@ -74,8 +75,9 @@
 } */
 
 .bold {
-  border: 1px solid red;
-  transform: translate(-50%, -50%) rotate(25deg);
+  transform: translate(-25%, -25%) rotate(25deg);
+  border: 1px solid blue;
+  background-color: #118AB2;
   color: red;
   font-size: 32px;
 }
@@ -86,6 +88,10 @@
 .classic,
 .contemporary,
 .bold {
+  /* background-color: #118AB2;
+  border: 1px solid blue; */
+  border-radius: .1rem;
+  padding: .5rem;
   height: 176px;
   width: 124px;
 }
