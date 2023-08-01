@@ -31,6 +31,7 @@
 
 .template {
   position: absolute;
+  word-wrap: break-word;
   /* border: 1px solid blue; */
   /* background-color: #118AB2; */
   /* border-radius: 1rem; */
