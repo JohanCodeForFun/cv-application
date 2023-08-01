@@ -31,11 +31,11 @@
 
 .template {
   position: absolute;
-  border: 1px solid blue;
-  background-color: #118AB2;
+  /* border: 1px solid blue; */
+  /* background-color: #118AB2; */
+  /* border-radius: 1rem; */
   height: 176px;
   width: 124px;
-  border-radius: 1rem;
   padding: .5rem;
   box-shadow: 0 0 30px transparent(30%);
   left: 50%;
