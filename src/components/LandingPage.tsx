@@ -22,20 +22,22 @@ function LandingPage({ handleState }: HandleState) {
     <div className={style.container}>
       <div className={style.hero}>
         <h1>Hero title</h1>
-        <CardTemplate templateType="classic" fullName={fullName}/>
-        <CardTemplate templateType="contemporary" fullName={fullName}/>
-        <CardTemplate templateType="bold" fullName={fullName}/>
+        <div>
+          <CardTemplate templateType="classic" fullName={fullName}/>
+          <CardTemplate templateType="contemporary" fullName={fullName}/>
+          <CardTemplate templateType="bold" fullName={fullName}/>
+        </div>
       </div>
       <div className={style.info}>
         <div className="input">
-        <h2>hello</h2>
-        <label>Full Name:</label>
-        <input
-        value={fullName}
-        placeholder='Full name here...'
-        onFocus={() => resetInput()}
-        onChange={handleInput}/>
-        <button onClick={() => handleState()}>Create CV!</button>
+          <h2>hello</h2>
+          <label>Full Name:</label>
+          <input
+          value={fullName}
+          placeholder='Full name here...'
+          onFocus={() => resetInput()}
+          onChange={handleInput}/>
+          <button onClick={() => handleState()}>Create CV!</button>
         </div>
       </div>
     </div>

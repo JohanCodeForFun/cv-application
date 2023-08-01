@@ -7,10 +7,10 @@ type Props = {
 
 function CardTemplate({ fullName, templateType }: Props) {
   return (
-    <div className={style.templates}>
-      <div className={style.template}>
+    <div className={style.template}>
+      <div className={style[templateType]}>
         <h3>{fullName}</h3>
-        <p className={style[templateType]}>type, {templateType}</p>
+        <p>type, {templateType}</p>
       </div>
     </div>
   )
